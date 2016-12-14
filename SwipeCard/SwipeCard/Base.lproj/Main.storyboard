@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A322" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Awd-ky-EgP">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xs-iU-czw">
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEM-er-Y5A" customClass="SwipeCardView">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="OBx-F8-xtc"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="700" id="BGS-IM-a68"/>
+                                            <constraint firstItem="OEM-er-Y5A" firstAttribute="top" secondItem="2xs-iU-czw" secondAttribute="top" id="J8I-kG-vLD"/>
+                                            <constraint firstItem="OEM-er-Y5A" firstAttribute="leading" secondItem="2xs-iU-czw" secondAttribute="leading" id="ROr-kH-6yR"/>
+                                            <constraint firstAttribute="trailing" secondItem="OEM-er-Y5A" secondAttribute="trailing" id="fEB-U1-FSX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2xs-iU-czw" firstAttribute="centerX" secondItem="Awd-ky-EgP" secondAttribute="centerX" id="3vp-it-f1H"/>
+                                    <constraint firstAttribute="trailing" secondItem="2xs-iU-czw" secondAttribute="trailing" id="5Iu-DJ-kad"/>
+                                    <constraint firstItem="2xs-iU-czw" firstAttribute="top" secondItem="Awd-ky-EgP" secondAttribute="top" id="Ma5-SV-9gn"/>
+                                    <constraint firstAttribute="bottom" secondItem="2xs-iU-czw" secondAttribute="bottom" id="cwV-bM-1fk"/>
+                                    <constraint firstItem="2xs-iU-czw" firstAttribute="leading" secondItem="Awd-ky-EgP" secondAttribute="leading" id="rp8-b5-m9w"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Awd-ky-EgP" secondAttribute="trailing" id="PBL-Qf-PIF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Awd-ky-EgP" secondAttribute="bottom" id="RPn-Cl-n4Q"/>
+                            <constraint firstItem="Awd-ky-EgP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Wfm-ZP-0FE"/>
+                            <constraint firstItem="Awd-ky-EgP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fRA-QC-O9a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="swipeCardView" destination="OEM-er-Y5A" id="JHF-op-x16"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

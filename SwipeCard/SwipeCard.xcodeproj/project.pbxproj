@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		018B01121E0137AF00913F48 /* SwipeCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 018B01111E0137AF00913F48 /* SwipeCardView.m */; };
+		01F585871DFEA10D00D9ED08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F585861DFEA10D00D9ED08 /* main.m */; };
+		01F5858A1DFEA10D00D9ED08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F585891DFEA10D00D9ED08 /* AppDelegate.m */; };
+		01F5858D1DFEA10D00D9ED08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5858C1DFEA10D00D9ED08 /* ViewController.m */; };
+		01F585901DFEA10D00D9ED08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F5858E1DFEA10D00D9ED08 /* Main.storyboard */; };
+		01F585921DFEA10D00D9ED08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01F585911DFEA10D00D9ED08 /* Assets.xcassets */; };
+		01F585951DFEA10D00D9ED08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F585931DFEA10D00D9ED08 /* LaunchScreen.storyboard */; };
+		01F585A01DFEA10D00D9ED08 /* SwipeCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5859F1DFEA10D00D9ED08 /* SwipeCardTests.m */; };
+		01F585AB1DFEA10D00D9ED08 /* SwipeCardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F585AA1DFEA10D00D9ED08 /* SwipeCardUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01F5859C1DFEA10D00D9ED08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01F5857A1DFEA10D00D9ED08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01F585811DFEA10D00D9ED08;
+			remoteInfo = SwipeCard;
+		};
+		01F585A71DFEA10D00D9ED08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01F5857A1DFEA10D00D9ED08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01F585811DFEA10D00D9ED08;
+			remoteInfo = SwipeCard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		018B01101E0137AF00913F48 /* SwipeCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeCardView.h; sourceTree = "<group>"; };
+		018B01111E0137AF00913F48 /* SwipeCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeCardView.m; sourceTree = "<group>"; };
+		01F585821DFEA10D00D9ED08 /* SwipeCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01F585861DFEA10D00D9ED08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		01F585881DFEA10D00D9ED08 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		01F585891DFEA10D00D9ED08 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		01F5858B1DFEA10D00D9ED08 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		01F5858C1DFEA10D00D9ED08 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		01F5858F1DFEA10D00D9ED08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		01F585911DFEA10D00D9ED08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01F585941DFEA10D00D9ED08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		01F585961DFEA10D00D9ED08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01F5859B1DFEA10D00D9ED08 /* SwipeCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01F5859F1DFEA10D00D9ED08 /* SwipeCardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeCardTests.m; sourceTree = "<group>"; };
+		01F585A11DFEA10D00D9ED08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01F585A61DFEA10D00D9ED08 /* SwipeCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01F585AA1DFEA10D00D9ED08 /* SwipeCardUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeCardUITests.m; sourceTree = "<group>"; };
+		01F585AC1DFEA10D00D9ED08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01F5857F1DFEA10D00D9ED08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01F585981DFEA10D00D9ED08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01F585A31DFEA10D00D9ED08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01F585791DFEA10D00D9ED08 = {
+			isa = PBXGroup;
+			children = (
+				01F585841DFEA10D00D9ED08 /* SwipeCard */,
+				01F5859E1DFEA10D00D9ED08 /* SwipeCardTests */,
+				01F585A91DFEA10D00D9ED08 /* SwipeCardUITests */,
+				01F585831DFEA10D00D9ED08 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01F585831DFEA10D00D9ED08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01F585821DFEA10D00D9ED08 /* SwipeCard.app */,
+				01F5859B1DFEA10D00D9ED08 /* SwipeCardTests.xctest */,
+				01F585A61DFEA10D00D9ED08 /* SwipeCardUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01F585841DFEA10D00D9ED08 /* SwipeCard */ = {
+			isa = PBXGroup;
+			children = (
+				01F585881DFEA10D00D9ED08 /* AppDelegate.h */,
+				01F585891DFEA10D00D9ED08 /* AppDelegate.m */,
+				01F5858B1DFEA10D00D9ED08 /* ViewController.h */,
+				018B01101E0137AF00913F48 /* SwipeCardView.h */,
+				018B01111E0137AF00913F48 /* SwipeCardView.m */,
+				01F5858C1DFEA10D00D9ED08 /* ViewController.m */,
+				01F5858E1DFEA10D00D9ED08 /* Main.storyboard */,
+				01F585911DFEA10D00D9ED08 /* Assets.xcassets */,
+				01F585931DFEA10D00D9ED08 /* LaunchScreen.storyboard */,
+				01F585961DFEA10D00D9ED08 /* Info.plist */,
+				01F585851DFEA10D00D9ED08 /* Supporting Files */,
+			);
+			path = SwipeCard;
+			sourceTree = "<group>";
+		};
+		01F585851DFEA10D00D9ED08 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				01F585861DFEA10D00D9ED08 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01F5859E1DFEA10D00D9ED08 /* SwipeCardTests */ = {
+			isa = PBXGroup;
+			children = (
+				01F5859F1DFEA10D00D9ED08 /* SwipeCardTests.m */,
+				01F585A11DFEA10D00D9ED08 /* Info.plist */,
+			);
+			path = SwipeCardTests;
+			sourceTree = "<group>";
+		};
+		01F585A91DFEA10D00D9ED08 /* SwipeCardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				01F585AA1DFEA10D00D9ED08 /* SwipeCardUITests.m */,
+				01F585AC1DFEA10D00D9ED08 /* Info.plist */,
+			);
+			path = SwipeCardUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01F585811DFEA10D00D9ED08 /* SwipeCard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01F585AF1DFEA10D00D9ED08 /* Build configuration list for PBXNativeTarget "SwipeCard" */;
+			buildPhases = (
+				01F5857E1DFEA10D00D9ED08 /* Sources */,
+				01F5857F1DFEA10D00D9ED08 /* Frameworks */,
+				01F585801DFEA10D00D9ED08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwipeCard;
+			productName = SwipeCard;
+			productReference = 01F585821DFEA10D00D9ED08 /* SwipeCard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		01F5859A1DFEA10D00D9ED08 /* SwipeCardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01F585B21DFEA10D00D9ED08 /* Build configuration list for PBXNativeTarget "SwipeCardTests" */;
+			buildPhases = (
+				01F585971DFEA10D00D9ED08 /* Sources */,
+				01F585981DFEA10D00D9ED08 /* Frameworks */,
+				01F585991DFEA10D00D9ED08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01F5859D1DFEA10D00D9ED08 /* PBXTargetDependency */,
+			);
+			name = SwipeCardTests;
+			productName = SwipeCardTests;
+			productReference = 01F5859B1DFEA10D00D9ED08 /* SwipeCardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		01F585A51DFEA10D00D9ED08 /* SwipeCardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01F585B51DFEA10D00D9ED08 /* Build configuration list for PBXNativeTarget "SwipeCardUITests" */;
+			buildPhases = (
+				01F585A21DFEA10D00D9ED08 /* Sources */,
+				01F585A31DFEA10D00D9ED08 /* Frameworks */,
+				01F585A41DFEA10D00D9ED08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01F585A81DFEA10D00D9ED08 /* PBXTargetDependency */,
+			);
+			name = SwipeCardUITests;
+			productName = SwipeCardUITests;
+			productReference = 01F585A61DFEA10D00D9ED08 /* SwipeCardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01F5857A1DFEA10D00D9ED08 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "万圣伟业";
+				TargetAttributes = {
+					01F585811DFEA10D00D9ED08 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = YZ264KY5WM;
+						ProvisioningStyle = Automatic;
+					};
+					01F5859A1DFEA10D00D9ED08 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = YZ264KY5WM;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 01F585811DFEA10D00D9ED08;
+					};
+					01F585A51DFEA10D00D9ED08 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = YZ264KY5WM;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 01F585811DFEA10D00D9ED08;
+					};
+				};
+			};
+			buildConfigurationList = 01F5857D1DFEA10D00D9ED08 /* Build configuration list for PBXProject "SwipeCard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 01F585791DFEA10D00D9ED08;
+			productRefGroup = 01F585831DFEA10D00D9ED08 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01F585811DFEA10D00D9ED08 /* SwipeCard */,
+				01F5859A1DFEA10D00D9ED08 /* SwipeCardTests */,
+				01F585A51DFEA10D00D9ED08 /* SwipeCardUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01F585801DFEA10D00D9ED08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01F585951DFEA10D00D9ED08 /* LaunchScreen.storyboard in Resources */,
+				01F585921DFEA10D00D9ED08 /* Assets.xcassets in Resources */,
+				01F585901DFEA10D00D9ED08 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01F585991DFEA10D00D9ED08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01F585A41DFEA10D00D9ED08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01F5857E1DFEA10D00D9ED08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01F5858D1DFEA10D00D9ED08 /* ViewController.m in Sources */,
+				01F5858A1DFEA10D00D9ED08 /* AppDelegate.m in Sources */,
+				018B01121E0137AF00913F48 /* SwipeCardView.m in Sources */,
+				01F585871DFEA10D00D9ED08 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01F585971DFEA10D00D9ED08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01F585A01DFEA10D00D9ED08 /* SwipeCardTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01F585A21DFEA10D00D9ED08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01F585AB1DFEA10D00D9ED08 /* SwipeCardUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01F5859D1DFEA10D00D9ED08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01F585811DFEA10D00D9ED08 /* SwipeCard */;
+			targetProxy = 01F5859C1DFEA10D00D9ED08 /* PBXContainerItemProxy */;
+		};
+		01F585A81DFEA10D00D9ED08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01F585811DFEA10D00D9ED08 /* SwipeCard */;
+			targetProxy = 01F585A71DFEA10D00D9ED08 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		01F5858E1DFEA10D00D9ED08 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01F5858F1DFEA10D00D9ED08 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		01F585931DFEA10D00D9ED08 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01F585941DFEA10D00D9ED08 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		01F585AD1DFEA10D00D9ED08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		01F585AE1DFEA10D00D9ED08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		01F585B01DFEA10D00D9ED08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YZ264KY5WM;
+				INFOPLIST_FILE = SwipeCard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangshengweiye.SwipeCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		01F585B11DFEA10D00D9ED08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YZ264KY5WM;
+				INFOPLIST_FILE = SwipeCard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangshengweiye.SwipeCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		01F585B31DFEA10D00D9ED08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = YZ264KY5WM;
+				INFOPLIST_FILE = SwipeCardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangshengweiye.SwipeCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwipeCard.app/SwipeCard";
+			};
+			name = Debug;
+		};
+		01F585B41DFEA10D00D9ED08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = YZ264KY5WM;
+				INFOPLIST_FILE = SwipeCardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangshengweiye.SwipeCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwipeCard.app/SwipeCard";
+			};
+			name = Release;
+		};
+		01F585B61DFEA10D00D9ED08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YZ264KY5WM;
+				INFOPLIST_FILE = SwipeCardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangshengweiye.SwipeCardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SwipeCard;
+			};
+			name = Debug;
+		};
+		01F585B71DFEA10D00D9ED08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YZ264KY5WM;
+				INFOPLIST_FILE = SwipeCardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangshengweiye.SwipeCardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SwipeCard;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01F5857D1DFEA10D00D9ED08 /* Build configuration list for PBXProject "SwipeCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01F585AD1DFEA10D00D9ED08 /* Debug */,
+				01F585AE1DFEA10D00D9ED08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01F585AF1DFEA10D00D9ED08 /* Build configuration list for PBXNativeTarget "SwipeCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01F585B01DFEA10D00D9ED08 /* Debug */,
+				01F585B11DFEA10D00D9ED08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01F585B21DFEA10D00D9ED08 /* Build configuration list for PBXNativeTarget "SwipeCardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01F585B31DFEA10D00D9ED08 /* Debug */,
+				01F585B41DFEA10D00D9ED08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01F585B51DFEA10D00D9ED08 /* Build configuration list for PBXNativeTarget "SwipeCardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01F585B61DFEA10D00D9ED08 /* Debug */,
+				01F585B71DFEA10D00D9ED08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01F5857A1DFEA10D00D9ED08 /* Project object */;
+}
