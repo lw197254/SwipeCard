@@ -7,65 +7,63 @@
 //
 
 #import "SwipeCardView.h"
+#import "SwipeCardViewCell.h"
 @interface SwipeCardView ()<UIGestureRecognizerDelegate>
 @property(nonatomic,strong) NSMutableDictionary*registDict;
 @property(nonatomic,assign)NSInteger currentMaxItem;
 @property(nonatomic,assign)NSInteger allCount;
-@property(nonatomic,strong)NSMutableArray *recoverArray;
+
 @property(nonatomic,assign)CGPoint originLocation;
 @property(nonatomic,strong)UIPanGestureRecognizer*  panGestureRecognizer;
 @property(nonatomic,strong)UIGestureRecognizer*  otherPanGestureRecognizer;
 @property(nonatomic,assign)BOOL isPanGestureUserable;
 @property(nonatomic,strong)UILabel*pageLabel;
-@property(nonatomic,strong)NSMutableArray *loadedCards;
+@property(nonatomic,strong)NSMutableArray<__kindof SwipeCardViewCell *> *visibleSwipeCardViewCells;
+@property(nonatomic,strong)NSMutableDictionary*reusableSwipeCardViewCells;
 
 @end
-@implementation SwipeCardView{
 
-     //%%% the array of card loaded (change max_buffer_size to
-    
-   
-    
-   
+@implementation SwipeCardView
+@synthesize visibleCells=_visibleCells;
+
+//- (void)setVisibleCells:(NSArray<__kindof UIView *> * _Nullable)visibleCells {
+//    if (_visibleCells != visibleCells) {
+//       
+//        _visibleCells = visibleCells;
+//    }
+//}
+-(NSArray<__kindof UIView *> * _Nullable)visibleCells{
+    return self.visibleSwipeCardViewCells;
 }
+
 
 //加载的view的最大个数
 static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any given time,
+
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-    self.recoverArray  = [[NSMutableArray alloc]init];
+    [self configInitData];
+   
+}
+-(instancetype)init{
+    if (self = [super init]) {
+        [self configInitData];
+    }
+    return self;
+}
+///初始化基本信息
+-(void)configInitData{
+    self.visibleSwipeCardViewCells = [[NSMutableArray alloc] init];
+    self.reusableSwipeCardViewCells = [[NSMutableDictionary alloc]init];
+    _currentPage = 0;
    
     
-    
-    
-        self.loadedCards = [[NSMutableArray alloc] init];
-        _currentPage = 0;
-        [self loadCards];
-        
-        self.registDict = [[NSMutableDictionary alloc]init];
+    self.registDict = [[NSMutableDictionary alloc]init];
     self.panGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(beingDragged:)];
     self.panGestureRecognizer.delegate = self;
     [self addGestureRecognizer:self.panGestureRecognizer];
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-//    缺少垃圾箱，未完成
-    self.recoverArray  = [[NSMutableArray alloc]init];
-    self = [super initWithFrame:frame];
-    if (self) {
-//        [super layoutSubviews];
-       
-//        exampleCardLabels = [[NSArray alloc]initWithObjects:@"first",@"second",@"third",@"fourth",@"last", nil]; //%%% placeholder for card-specific information
-        self.loadedCards = [[NSMutableArray alloc] init];
-        _currentPage = 0;
-        [self loadCards];
-       
-        self.registDict = [[NSMutableDictionary alloc]init];
-    }
-    
-    return self;
+     [self loadCards];
+//    [self reloadData];
 }
 
 //%%% sets up the extra buttons on the screen
@@ -93,20 +91,23 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
 
 
 -(void)reloadData{
-//   [[GCDQueue mainQueue]queueBlock:^{
+
     if ([self.dataSource respondsToSelector:@selector(SwipeCardViewnumberOfItems:)]) {
         _allCount = [self.dataSource SwipeCardViewnumberOfItems:self];
     }
     
-       [self.loadedCards enumerateObjectsUsingBlock:^(UIView* obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       [self.visibleSwipeCardViewCells enumerateObjectsUsingBlock:^(SwipeCardViewCell* obj, NSUInteger idx, BOOL * _Nonnull stop) {
            [obj removeFromSuperview];
+           [self.reusableSwipeCardViewCells setObject:obj forKey:obj.reuseIdentifier];
        }];
-       [self.loadedCards removeAllObjects];
+    
+       [self.visibleSwipeCardViewCells removeAllObjects];
+   
     if (self.allCount > 0) {
          [self loadCards];
     }
     
-//   }];
+
    
     
     
@@ -114,14 +115,18 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
 
 ///view重用,暂未实现
 
--(__kindof UIView* _Nullable)dequeueReusableViewWithReuseIdentifier:(nonnull NSString*)identifier forIndexPath:(NSInteger)index{
+-(__kindof SwipeCardViewCell* _Nullable)dequeueReusableViewWithReuseIdentifier:(nonnull NSString*)identifier forIndexPath:(NSInteger)index{
     Class class = self.registDict[identifier];
-    UIView*view;
+    
+    SwipeCardViewCell*view = [self.reusableSwipeCardViewCells objectForKey:identifier];
+    [self.reusableSwipeCardViewCells removeObjectForKey:identifier];
     if (view==nil) {
+        
         view = [[class alloc]init];
+        [view setValue:identifier forKey:@"reuseIdentifier"];
         UITapGestureRecognizer*tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(itemTap:)];
         [view addGestureRecognizer:tap];
-       
+        
         
         ///设置阴影
         view.layer.shadowColor = [UIColor grayColor].CGColor;//shadowColor阴影颜色
@@ -152,8 +157,8 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
     return size;
 }
 //%%% loads all the cards and puts the first x in the "loaded cards" array
--(UIView*)reloadCardViewAtIndex:(NSInteger)index{
-    UIView*view = [self.delegate SwipeCardView:self viewForItemAtIndex:index];
+-(SwipeCardViewCell*)reloadCardViewAtIndex:(NSInteger)index{
+    SwipeCardViewCell*view = [self.delegate SwipeCardView:self viewForItemAtIndex:index];
     
     return view;
 }
@@ -163,8 +168,9 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
         if ([self.delegate respondsToSelector:@selector(SwipeCardView:viewForItemAtIndex:)])  {
 //            NSInteger index = i;
             NSInteger index= (self.currentPage+ self.allCount+i)%self.allCount;
-            UIView*view = [self.delegate SwipeCardView:self viewForItemAtIndex:index];
-            [self.loadedCards addObject:view];
+            SwipeCardViewCell*view = [self.delegate SwipeCardView:self viewForItemAtIndex:index];
+            
+            [self.visibleSwipeCardViewCells addObject:view];
             view.translatesAutoresizingMaskIntoConstraints = NO;
             [self insertSubview:view atIndex:0];
 //            [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -207,15 +213,16 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
     
     [self resetAllCards];
 }
-//rese
+//重设每个swipecardViewCell的透明度
 -(void)resetAllCards{
-    [self.loadedCards enumerateObjectsUsingBlock:^(UIView* view, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.visibleSwipeCardViewCells enumerateObjectsUsingBlock:^(UIView* view, NSUInteger idx, BOOL * _Nonnull stop) {
 //        [view layoutSubviews];
         [self view:view resetWithAlpha:1 -idx*0.3/MAX_BUFFER_SIZE yScale:1 - idx*0.3/MAX_BUFFER_SIZE xTransform:idx*8];
         
     }];
 
 }
+//设置view的偏移量与透明度
 -(void)view:(UIView*)view resetWithAlpha:(CGFloat)alpha yScale:(CGFloat)yScale xTransform:(CGFloat)xTransform {
     view.alpha = alpha;
  CATransform3D   transform =  CATransform3DMakeTranslation(xTransform, 0, 0);
@@ -232,15 +239,16 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
 // This should be customized with your own action
 -(void)cardSwipedToLeft:(UIView *)card;
 {
-    self.userInteractionEnabled = NO;
+//    self.userInteractionEnabled = NO;
+    
     [UIView animateWithDuration:0.25 animations:^{
-        card.layer.transform = CATransform3DMakeTranslation(-500, 0, 0);
+        card.layer.transform = CATransform3DMakeTranslation(-1000, 0, 0);
     }completion:^(BOOL finished) {
         //视图移除之后就进入回收箱
         [card removeFromSuperview];
         card.layer.transform = CATransform3DIdentity;
         
-        [self.recoverArray addObject:card];
+        
     } ];
 
     
@@ -249,34 +257,41 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
     self.currentPage = (self.currentPage+ self.allCount)%self.allCount ;
    
    
-     [self.loadedCards removeObjectAtIndex:0];
+   
     
     [self cardSwipedToLeftFinished];
 
 }
 -(void)cardSwipedToLeftFinished
 {
+    SwipeCardViewCell*cell = [self.visibleSwipeCardViewCells firstObject];
+    [self.reusableSwipeCardViewCells setObject:cell forKey:cell.reuseIdentifier];
+      [self.visibleSwipeCardViewCells removeObjectAtIndex:0];
     //向左滑动
     
     [UIView animateWithDuration:0.5 animations:^{
         //           将所有的叠加view调整位置并且加动画
-        [self.loadedCards enumerateObjectsUsingBlock:^(UIView* view, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.visibleSwipeCardViewCells enumerateObjectsUsingBlock:^(UIView* view, NSUInteger idx, BOOL * _Nonnull stop) {
             
             [self view:view resetWithAlpha:1 -idx*0.3/MAX_BUFFER_SIZE yScale:1 - idx*0.3/MAX_BUFFER_SIZE xTransform:idx*8];
             
         }];
+        SwipeCardViewCell*newView =   [self reloadCardViewAtIndex:(self.currentPage+self.currentMaxItem-1)%self.allCount];
+        [self view:newView resetWithAlpha:0 yScale:1 xTransform:0];
+        
+        
+        [self.visibleSwipeCardViewCells addObject:newView];
+        
+        
         
     } completion:^(BOOL finished) {
         
         //               向左滑动，结束后给最下面的view加动画
         
         
-        UIView*newView =   [self reloadCardViewAtIndex:(self.currentPage+self.currentMaxItem-1)%self.allCount];
-        [self view:newView resetWithAlpha:0 yScale:1 xTransform:0];
-       
-        
-        [self.loadedCards addObject:newView];
-        [self insertSubview:newView belowSubview:[self.loadedCards objectAtIndex:(self.loadedCards.count-2)]];
+        SwipeCardViewCell*newView =   [self.visibleSwipeCardViewCells lastObject];
+        [self insertSubview:newView belowSubview:[self.visibleSwipeCardViewCells objectAtIndex:(self.visibleSwipeCardViewCells.count-2)]];
+//        newView.hidden = NO;
         newView.translatesAutoresizingMaskIntoConstraints = NO;
 //        [newView mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.left.centerY.equalTo(self);
@@ -307,10 +322,10 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
         //               [self cardSwipedToLeftFinished:newView];
         [UIView animateWithDuration:0.1 animations:^{
             //                   [self cardSwipedToLeftFinished:view];
-            NSInteger idx = self.loadedCards.count -1;
+            NSInteger idx = self.visibleSwipeCardViewCells.count -1;
             
             [self view:newView resetWithAlpha:1 -idx*0.3/MAX_BUFFER_SIZE yScale:1 - idx*0.3/MAX_BUFFER_SIZE xTransform:idx*8];
-            self.userInteractionEnabled = YES;
+//            self.userInteractionEnabled = YES;
         }];
     }];
 
@@ -321,9 +336,9 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
     self.currentPage--;
     
     self.currentPage = (self.currentPage+ self.allCount)%self.allCount ;
-    UIView*view = [self reloadCardViewAtIndex:self.currentPage];
+    SwipeCardViewCell*view = [self reloadCardViewAtIndex:self.currentPage];
     
-    view.layer.transform = CATransform3DMakeTranslation(-500, 0, 0);
+    view.layer.transform = CATransform3DMakeTranslation(-1000, 0, 0);
     [self addSubview:view];
     view.translatesAutoresizingMaskIntoConstraints = NO;
 //    [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -353,36 +368,41 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
      [view addConstraints:@[widthConstraint,heightConstraint]];
 
     //    [self.recoverArray addObject:obj];
-    [self.loadedCards insertObject:view atIndex:0];
+    [self.visibleSwipeCardViewCells insertObject:view atIndex:0];
     card.alpha = 1;
     [self cardSwipedToRightFinished];
 }
 -(void)cardSwipedToRightFinished{
-    UIView* obj = [self.loadedCards lastObject];
+    SwipeCardViewCell* obj = [self.visibleSwipeCardViewCells lastObject];
     
-    self.userInteractionEnabled = NO;
+//    self.userInteractionEnabled = NO;
     [UIView animateWithDuration:0.1 animations:^{
         
         [self view:obj resetWithAlpha:0 yScale:0.5 xTransform:0];
         //           将所有的叠加view调整位置并且加动画
         
     } completion:^(BOOL finished) {
-        [self.loadedCards removeObject:obj];
+        [self.visibleSwipeCardViewCells removeObject:obj];
+        [self.reusableSwipeCardViewCells setObject:obj forKey:obj.reuseIdentifier];
         [obj removeFromSuperview];
         [UIView animateWithDuration:0.5 animations:^{
             //           将所有的叠加view调整位置并且加动画
-            [self.loadedCards enumerateObjectsUsingBlock:^(UIView* view, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self.visibleSwipeCardViewCells enumerateObjectsUsingBlock:^(UIView* view, NSUInteger idx, BOOL * _Nonnull stop) {
                 
                 [self view:view resetWithAlpha:1 -idx*0.3/MAX_BUFFER_SIZE yScale:1 - idx*0.3/MAX_BUFFER_SIZE xTransform:idx*8];
                 
             }];
         }];
-         self.userInteractionEnabled = YES;
+//         self.userInteractionEnabled = YES;
     }];
     
 }
-
-
+-(void)animationBegin{
+    
+}
+-(void)animationEnd{
+    
+}
 -(NSInteger)currentMaxItem{
     if (self.allCount > MAX_BUFFER_SIZE) {
         _currentMaxItem = MAX_BUFFER_SIZE;
@@ -426,7 +446,7 @@ static const int MAX_BUFFER_SIZE = 3; //%%% max number of cards loaded at any gi
    
    CGFloat xFromCenter = [gestureRecognizer translationInView:self].x; //%%% positive for right swipe, negative for left
   CGFloat  yFromCenter = [gestureRecognizer translationInView:self].y; //%%% positive for up, negative for down
-    UIView*view = [self.loadedCards firstObject];
+    UIView*view = [self.visibleSwipeCardViewCells firstObject];
     if (fabs(yFromCenter) >fabs(xFromCenter)) {
         gestureRecognizer.enabled = NO;
         

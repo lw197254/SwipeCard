@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		018A90361E02447A00C3350C /* SwipeCardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 018A90351E02447A00C3350C /* SwipeCardViewCell.m */; };
 		018B01121E0137AF00913F48 /* SwipeCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 018B01111E0137AF00913F48 /* SwipeCardView.m */; };
 		01F585871DFEA10D00D9ED08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F585861DFEA10D00D9ED08 /* main.m */; };
 		01F5858A1DFEA10D00D9ED08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F585891DFEA10D00D9ED08 /* AppDelegate.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		018A90341E02447A00C3350C /* SwipeCardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeCardViewCell.h; sourceTree = "<group>"; };
+		018A90351E02447A00C3350C /* SwipeCardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeCardViewCell.m; sourceTree = "<group>"; };
 		018B01101E0137AF00913F48 /* SwipeCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeCardView.h; sourceTree = "<group>"; };
 		018B01111E0137AF00913F48 /* SwipeCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeCardView.m; sourceTree = "<group>"; };
 		01F585821DFEA10D00D9ED08 /* SwipeCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +110,8 @@
 				01F585881DFEA10D00D9ED08 /* AppDelegate.h */,
 				01F585891DFEA10D00D9ED08 /* AppDelegate.m */,
 				01F5858B1DFEA10D00D9ED08 /* ViewController.h */,
+				018A90341E02447A00C3350C /* SwipeCardViewCell.h */,
+				018A90351E02447A00C3350C /* SwipeCardViewCell.m */,
 				018B01101E0137AF00913F48 /* SwipeCardView.h */,
 				018B01111E0137AF00913F48 /* SwipeCardView.m */,
 				01F5858C1DFEA10D00D9ED08 /* ViewController.m */,
@@ -281,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				018A90361E02447A00C3350C /* SwipeCardViewCell.m in Sources */,
 				01F5858D1DFEA10D00D9ED08 /* ViewController.m in Sources */,
 				01F5858A1DFEA10D00D9ED08 /* AppDelegate.m in Sources */,
 				018B01121E0137AF00913F48 /* SwipeCardView.m in Sources */,
